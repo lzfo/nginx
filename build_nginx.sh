@@ -45,7 +45,6 @@ tar xzf $VERSION_PCRE.tar.gz
 echo "Configure & Build Nginx"
 cd ./$VERSION_NGINX
 ./configure --prefix=/usr/local/nginx \
-#--sbin-path=/usr/sbin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
 --pid-path=/run/nginx.pid \
 --error-log-path=/var/log/nginx/error.log \
