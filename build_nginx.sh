@@ -10,12 +10,13 @@ set -e
 # names of latest versions of each package
 export NGINX_VERSION=1.13.10
 export VERSION_PCRE=pcre-8.42
+export VERSION_ZLIB=zlib-1.2.11
 export VERSION_OPENSSL=openssl-1.0.2n
 export VERSION_NGINX=nginx-$NGINX_VERSION
- 
 # URLs to the source directories
-export SOURCE_OPENSSL=https://www.openssl.org/source/
 export SOURCE_PCRE=https://ftp.pcre.org/pub/pcre/
+export SOURCE_ZLIB=https://zlib.net/
+export SOURCE_OPENSSL=https://www.openssl.org/source/
 export SOURCE_NGINX=https://nginx.org/download/
  
 # clean out any files from previous runs of this script
@@ -30,9 +31,10 @@ sudo apt-get -y install wget build-essential
  
 # grab the source files
 echo "Download sources"
-wget -P ./build $SOURCE_PCRE$VERSION_PCRE.tar.gz
-wget -P ./build $SOURCE_OPENSSL$VERSION_OPENSSL.tar.gz
 wget -P ./build $SOURCE_NGINX$VERSION_NGINX.tar.gz
+wget -P ./build $SOURCE_PCRE$VERSION_PCRE.tar.gz
+wget -P ./build $SOURCE_ZLIB$VERSION_ZLIB.tar.gz
+wget -P ./build $SOURCE_OPENSSL$VERSION_OPENSSL.tar.gz
  
 # expand the source files
 echo "Extract Packages"
@@ -40,6 +42,7 @@ cd build
 tar xzf $VERSION_NGINX.tar.gz
 tar xzf $VERSION_OPENSSL.tar.gz
 tar xzf $VERSION_PCRE.tar.gz
+tar xzf $VERSION_ZLIB.tar.gz
  
 # build nginx, with various modules included/excluded
 echo "Configure & Build Nginx"
@@ -52,6 +55,7 @@ cd ./$VERSION_NGINX
 --with-pcre=../$VERSION_PCRE \
 --with-pcre-jit \
 --with-openssl=../$VERSION_OPENSSL \
+--with-zlib=../$VERSION_ZLIB \
 --with-http_ssl_module \
 --with-http_realip_module \
 --with-http_v2_module \
