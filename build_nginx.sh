@@ -11,7 +11,7 @@ set -e
 export NGINX_VERSION=1.13.11
 export VERSION_PCRE=pcre-8.42
 export VERSION_ZLIB=zlib-1.2.11
-export VERSION_OPENSSL=openssl-1.0.2n
+export VERSION_OPENSSL=openssl-1.0.2o
 export VERSION_NGINX=nginx-$NGINX_VERSION
 # URLs to the source directories
 export SOURCE_PCRE=https://ftp.pcre.org/pub/pcre/
