@@ -1,0 +1,14 @@
+# ssl params setting
+
+ssl_ciphers  HIGH:!aNULL:!MD5;
+ssl_prefer_server_ciphers  on;
+
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+ssl_session_cache    shared:SSL:10m;  # 1m can store about 4000 sessions
+ssl_session_timeout  60m;
+ssl_session_tickets  on;
+
+# OCSP Stapling
+ssl_stapling         on;
+ssl_stapling_verify  on;
