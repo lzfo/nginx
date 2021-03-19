@@ -47,11 +47,20 @@ tar xzf $VERSION_ZLIB.tar.gz
 # build nginx, with various modules included/excluded
 echo "Configure & Build Nginx"
 cd ./$VERSION_NGINX
-./configure --prefix=/usr/local/nginx \
+./configure \
+--prefix=/etc/nginx \
+--sbin-path=/usr/sbin/nginx \
+--modules-path=/usr/lib/nginx/modules \
 --conf-path=/etc/nginx/nginx.conf \
---pid-path=/run/nginx.pid \
 --error-log-path=/var/log/nginx/error.log \
 --http-log-path=/var/log/nginx/access.log \
+--pid-path=/run/nginx.pid \
+--lock-path=/run/nginx.lock \
+--http-client-body-temp-path=/var/cache/nginx/client_temp \
+--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+--http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+--http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+--http-scgi-temp-path=/var/cache/nginx/scgi_temp \
 --with-pcre=../$VERSION_PCRE \
 --with-pcre-jit \
 --with-openssl=../$VERSION_OPENSSL \
