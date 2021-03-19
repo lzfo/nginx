@@ -77,4 +77,4 @@ cd ./$VERSION_NGINX
 make -j $NB_PROC
  
 echo "Build done.";
-echo "Enter `sudo make install` to install nginx.";
+echo "Enter \`sudo make install\` to install nginx.";
