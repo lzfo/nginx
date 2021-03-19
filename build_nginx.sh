@@ -61,12 +61,12 @@ cd ./$VERSION_NGINX
 --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
 --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
 --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
---with-file-aio \
---with-threads \
 --with-pcre=../$VERSION_PCRE \
 --with-pcre-jit \
 --with-openssl=../$VERSION_OPENSSL \
 --with-zlib=../$VERSION_ZLIB \
+--with-file-aio \
+--with-threads \
 --with-http_stub_status_module \
 --with-http_ssl_module \
 --with-http_v2_module \
@@ -74,7 +74,9 @@ cd ./$VERSION_NGINX
 --with-stream \
 --with-stream_ssl_module \
 --with-stream_realip_module \
---with-stream_ssl_preread_module
+--with-stream_ssl_preread_module \
+--with-cc-opt='-Os -fomit-frame-pointer' \
+--with-ld-opt='-Wl,--as-needed'
  
 make -j $NB_PROC
  
