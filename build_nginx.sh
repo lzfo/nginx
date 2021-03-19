@@ -56,13 +56,14 @@ cd ./$VERSION_NGINX
 --with-pcre-jit \
 --with-openssl=../$VERSION_OPENSSL \
 --with-zlib=../$VERSION_ZLIB \
---with-http_ssl_module \
---with-http_realip_module \
---with-http_v2_module \
 --with-http_stub_status_module \
+--with-http_ssl_module \
+--with-http_v2_module \
+--with-http_realip_module \
 --with-stream \
 --with-stream_ssl_module \
---with-stream_realip_module
+--with-stream_realip_module \
+--with-stream_ssl_preread_module
  
 make -j $NB_PROC
  
