@@ -2,11 +2,13 @@
 Nginx related stuffs
 
 
-## nginx.service
+## Installation
 
-Copy `nginx.service` to `/etc/systemd/system/nginx.service` to create the nginx service.
+### Run service
 
-Run the command below to start nginx on boot
+Copy file `nginx.service` to `/lib/systemd/system/nginx.service` to create systemd service.
+
+Run the command below to enable nginx start on boot.
 
 ```sh
 $ systemctl enable nginx
