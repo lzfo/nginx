@@ -60,7 +60,6 @@ cd ./$VERSION_NGINX
 --with-http_realip_module \
 --with-http_v2_module \
 --with-http_stub_status_module \
---with-ipv6 \
 --with-stream \
 --with-stream_ssl_module \
 --with-stream_realip_module
